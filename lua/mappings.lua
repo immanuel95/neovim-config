@@ -1,0 +1,99 @@
+local map = vim.keymap.set
+
+-- move
+map("i", "<C-h>", "<Left>", { desc = "move left" })
+map("i", "<C-l>", "<Right>", { desc = "move right" })
+map("i", "<C-j>", "<Down>", { desc = "move down" })
+map("i", "<C-k>", "<Up>", { desc = "move up" })
+
+-- switch windows
+map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+
+-- general mappings
+map("n", "<C-s>", "<cmd> w <CR>")
+map("i", "jk", "<ESC>")
+map("n", "<C-c>", "<cmd> %y+ <CR>") -- copy whole filecontent
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+
+-- copy lines
+map("v", "<leader>J", ":t '><CR>", { noremap = true, silent = true, desc = "Copy selected lines below in visual mode" })
+map("v", "<leader>K", ":t 0<CR>", { noremap = true, silent = true, desc = "Copy selected lines top in visual mode" })
+
+-- nvimtree
+map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
+map("n", "<C-h>", "<cmd> NvimTreeFocus <CR>")
+
+-- mini.nvim
+map("n", "<leader>ff", ":Pick files<CR>")
+map("n", "<leader>fw", ":Pick grep live<CR>")
+map("n", "<leader>n", function()
+    require("mini.notify").show_history()
+end, { desc = "Notify history" })
+
+-- buffers
+map("n", "H", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "L", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close Other Buffers" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Current Buffer" })
+
+-- windows management
+map(
+    "n",
+    "<A-Right>",
+    ":vertical resize -10<CR>",
+    { noremap = true, silent = true, desc = "Resize vertical split (widen right)" }
+)
+map(
+    "n",
+    "<A-Left>",
+    ":vertical resize +10<CR>",
+    { noremap = true, silent = true, desc = "Resize vertical split (narrow left)" }
+)
+map(
+    "n",
+    "<A-Up>",
+    ":resize +5<CR>",
+    { noremap = true, silent = true, desc = "Resize horizontal split (increase height)" }
+)
+map(
+    "n",
+    "<A-Down>",
+    ":resize -5<CR>",
+    { noremap = true, silent = true, desc = "Resize horizontal split (decrease height)" }
+)
+map("n", "<leader>wh", ":split<CR>", { noremap = true, silent = true, desc = "Split horizontal" })
+map("n", "<leader>wv", ":vsplit<CR>", { noremap = true, silent = true, desc = "Split vertical" })
+map("n", "<leader>wch", ":new<CR>", { noremap = true, silent = true, desc = "Split horizontal new buffer" })
+map("n", "<leader>wcv", ":vnew<CR>", { noremap = true, silent = true, desc = "Split vertical new buffer" })
+
+-- nvim-tree
+-- local nvimtreeapi = require "nvim-tree.api"
+-- map("n", "<leader>bmv", function()
+--   nvimtreeapi.marks.bulk.move()
+-- end, { noremap = true, silent = true, desc = "Move bookmarked files / folders" })
+
+-- misc
+map("n", "<C-e>", "10<C-e>", { desc = "Scroll down 10 lines" })
+map("n", "<C-y>", "10<C-y>", { desc = "Scroll up 10 lines" })
+map("n", "<leader>L", ":Lazy<CR>", { noremap = true, silent = true, desc = "Lazy Command" })
+map("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, desc = "Save" })
+map("i", "<C-c>", "<Esc>", { noremap = true, desc = "Exit Insert mode" })
+
+-- iron.nvim
+-- map("n", "<leader>rs", "<cmd>IronRepl<cr>", { noremap = true, desc = "Open REPL" })
+-- map("n", "<leader>rr", "<cmd>IronRestart<cr>", { noremap = true, desc = "Restart REPL" })
+-- map("n", "<leader>rf", "<cmd>IronFocus<cr>", { noremap = true, desc = "Focus REPL" })
+-- map("n", "<leader>rh", "<cmd>IronHide<cr>", { noremap = true, desc = "Hide REPL" })
+
+-- comment.nvim
+-- map("n", "<leader>/", "gcc", { remap = true })
+-- map("v", "<leader>/", "gc", { remap = true })
+
+-- format
+-- map("n", "<leader>fm", function()
+--   require("conform").format()
+-- end)
