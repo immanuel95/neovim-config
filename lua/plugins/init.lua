@@ -65,8 +65,7 @@ return {
 
   {
     "stevearc/conform.nvim",
-    dependencies = { "mason.nvim" },
-    cmd = { "ConformInfo" },
+    lazy = false,
     opts = require "plugins.configs.conform",
   },
 
@@ -125,10 +124,10 @@ return {
 
   {
     "Vigemus/iron.nvim",
-    enabled = false,
+    enabled = true,
     ft = { "python" },
     config = function()
-      require "configs.iron"
+      require "plugins.configs.iron"
     end,
   },
 

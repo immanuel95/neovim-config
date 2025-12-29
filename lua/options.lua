@@ -1,4 +1,5 @@
 local o = vim.o
+local opt = vim.opt
 
 vim.g.mapleader = " "
 
@@ -8,8 +9,6 @@ o.winborder = "rounded"
 
 o.clipboard = "unnamedplus"
 
-o.formatexpr = "v:lua.require'conform'.formatexpr()"
-
 -- Indenting
 o.expandtab = true
 o.shiftwidth = 2
@@ -17,7 +16,7 @@ o.smartindent = true
 o.tabstop = 2
 o.softtabstop = 2
 
-vim.opt.fillchars = { eob = " " }
+opt.fillchars = { eob = " " }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
@@ -32,13 +31,15 @@ o.timeoutlen = 400
 o.undofile = true
 o.cursorline = true
 
-local opt = vim.opt
 opt.guicursor = {
   "n-v-c:block-Cursor",
   "i-ci-ve:ver25-Cursor",
   "r-cr:hor20-Cursor",
   "n-v-c-i-ci-ve-r-cr:blinkon500-blinkoff500",
 }
+
+opt.timeoutlen = 2000
+opt.ttimeoutlen = 10
 
 local api = vim.api
 api.nvim_set_hl(0, "YankHighlight", { bg = "#df8e1d", fg = "NONE" })

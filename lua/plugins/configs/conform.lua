@@ -1,19 +1,22 @@
 return {
   formatters_by_ft = {
     lua = { "stylua" },
-    css = { "prettierd" },
-    html = { "prettierd" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-    svelte = { "prettierd" },
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
-    go = { "goimports", "gofumpt" },
-    -- markdown = { "markdownlint-cli2", "markdown-toc" },
+    svelte = { "prettierd" },
+    css = { "prettierd" },
+    html = { "prettierd" },
     json = { "prettierd" },
     yaml = { "prettierd" },
-    yml = { "prettierd" },
+    markdown = { "prettierd" },
+    go = { "goimports", "gofumpt" },
+
+    -- Fallback to LSP for filetypes not listed above
+    ["*"] = { "codespell" },
+    ["_"] = { "trim_whitespace" },
   },
 
   format_on_save = {

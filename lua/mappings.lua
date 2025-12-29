@@ -84,7 +84,7 @@ map("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, desc = "Save" })
 map("i", "<C-c>", "<Esc>", { noremap = true, desc = "Exit Insert mode" })
 
 -- iron.nvim
--- map("n", "<leader>rs", "<cmd>IronRepl<cr>", { noremap = true, desc = "Open REPL" })
--- map("n", "<leader>rr", "<cmd>IronRestart<cr>", { noremap = true, desc = "Restart REPL" })
--- map("n", "<leader>rf", "<cmd>IronFocus<cr>", { noremap = true, desc = "Focus REPL" })
--- map("n", "<leader>rh", "<cmd>IronHide<cr>", { noremap = true, desc = "Hide REPL" })
+map("n", "<leader>rs", "<cmd>IronRepl<cr>", { noremap = true, desc = "Open REPL" })
+map("n", "<leader>rr", "<cmd>IronRestart<cr>", { noremap = true, desc = "Restart REPL" })
+map("n", "<leader>rf", "<cmd>IronFocus<cr>", { noremap = true, desc = "Focus REPL" })
+map("n", "<leader>rh", "<cmd>IronHide<cr>", { noremap = true, desc = "Hide REPL" })
