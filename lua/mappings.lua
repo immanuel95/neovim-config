@@ -23,15 +23,14 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("v", "<leader>J", ":t '><CR>", { noremap = true, silent = true, desc = "Copy selected lines below in visual mode" })
 map("v", "<leader>K", ":t 0<CR>", { noremap = true, silent = true, desc = "Copy selected lines top in visual mode" })
 
--- nvimtree
-map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
-map("n", "<C-h>", "<cmd> NvimTreeFocus <CR>")
-
 -- mini.nvim
+map("n", "<C-n>", function()
+  require("mini.files").open(vim.api.nvim_buf_get_name(0), false)
+end, { desc = "Open mini files" })
 map("n", "<leader>ff", ":Pick files<CR>")
 map("n", "<leader>fw", ":Pick grep live<CR>")
 map("n", "<leader>n", function()
-    require("mini.notify").show_history()
+  require("mini.notify").show_history()
 end, { desc = "Notify history" })
 
 -- buffers
@@ -42,39 +41,33 @@ map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Current Buffer" })
 
 -- windows management
 map(
-    "n",
-    "<A-Right>",
-    ":vertical resize -10<CR>",
-    { noremap = true, silent = true, desc = "Resize vertical split (widen right)" }
+  "n",
+  "<A-Right>",
+  ":vertical resize -10<CR>",
+  { noremap = true, silent = true, desc = "Resize vertical split (widen right)" }
 )
 map(
-    "n",
-    "<A-Left>",
-    ":vertical resize +10<CR>",
-    { noremap = true, silent = true, desc = "Resize vertical split (narrow left)" }
+  "n",
+  "<A-Left>",
+  ":vertical resize +10<CR>",
+  { noremap = true, silent = true, desc = "Resize vertical split (narrow left)" }
 )
 map(
-    "n",
-    "<A-Up>",
-    ":resize +5<CR>",
-    { noremap = true, silent = true, desc = "Resize horizontal split (increase height)" }
+  "n",
+  "<A-Up>",
+  ":resize +5<CR>",
+  { noremap = true, silent = true, desc = "Resize horizontal split (increase height)" }
 )
 map(
-    "n",
-    "<A-Down>",
-    ":resize -5<CR>",
-    { noremap = true, silent = true, desc = "Resize horizontal split (decrease height)" }
+  "n",
+  "<A-Down>",
+  ":resize -5<CR>",
+  { noremap = true, silent = true, desc = "Resize horizontal split (decrease height)" }
 )
 map("n", "<leader>wh", ":split<CR>", { noremap = true, silent = true, desc = "Split horizontal" })
 map("n", "<leader>wv", ":vsplit<CR>", { noremap = true, silent = true, desc = "Split vertical" })
 map("n", "<leader>wch", ":new<CR>", { noremap = true, silent = true, desc = "Split horizontal new buffer" })
 map("n", "<leader>wcv", ":vnew<CR>", { noremap = true, silent = true, desc = "Split vertical new buffer" })
-
--- nvim-tree
--- local nvimtreeapi = require "nvim-tree.api"
--- map("n", "<leader>bmv", function()
---   nvimtreeapi.marks.bulk.move()
--- end, { noremap = true, silent = true, desc = "Move bookmarked files / folders" })
 
 -- misc
 map("n", "<C-e>", "10<C-e>", { desc = "Scroll down 10 lines" })
@@ -88,12 +81,3 @@ map("i", "<C-c>", "<Esc>", { noremap = true, desc = "Exit Insert mode" })
 -- map("n", "<leader>rr", "<cmd>IronRestart<cr>", { noremap = true, desc = "Restart REPL" })
 -- map("n", "<leader>rf", "<cmd>IronFocus<cr>", { noremap = true, desc = "Focus REPL" })
 -- map("n", "<leader>rh", "<cmd>IronHide<cr>", { noremap = true, desc = "Hide REPL" })
-
--- comment.nvim
--- map("n", "<leader>/", "gcc", { remap = true })
--- map("v", "<leader>/", "gc", { remap = true })
-
--- format
--- map("n", "<leader>fm", function()
---   require("conform").format()
--- end)

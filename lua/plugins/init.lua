@@ -10,15 +10,9 @@ return {
       transparent_background = true,
       float = {
         transparent = false,
-        solid = true,
+        solid = false,
       },
     },
-  },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    opts = {},
   },
 
   {
@@ -73,50 +67,11 @@ return {
   },
 
   {
-    "nvimdev/indentmini.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
-  },
-
-  {
     "echasnovski/mini.nvim",
     version = "*",
     config = function()
       require("plugins.configs.mini").setup()
     end,
-  },
-
-  {
-
-    "nvim-tree/nvim-tree.lua",
-    lazy = false,
-    opts = {
-      filters = { dotfiles = false },
-      git = { ignore = false },
-      diagnostics = { enable = true, show_on_dirs = true },
-      renderer = {
-        root_folder_label = false,
-        highlight_git = true,
-        indent_markers = { enable = true },
-        icons = {
-          show = { diagnostics = true },
-          glyphs = {
-            default = "󰈚",
-            modified = "●",
-            folder = {
-              default = "",
-              empty = "",
-              empty_open = "",
-              open = "",
-              symlink = "",
-            },
-            git = {
-              unmerged = "",
-            },
-          },
-        },
-      },
-    },
   },
 
   {

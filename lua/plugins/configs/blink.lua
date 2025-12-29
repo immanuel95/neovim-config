@@ -1,6 +1,6 @@
 return {
   snippets = { preset = "mini_snippets" },
-  cmdline = { enabled = true },
+  cmdline = { enabled = false },
   appearance = { nerd_font_variant = "normal" },
   fuzzy = { implementation = "prefer_rust" },
   sources = { default = { "lsp", "path", "snippets", "buffer" } },

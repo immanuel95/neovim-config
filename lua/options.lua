@@ -2,7 +2,7 @@ local o = vim.o
 
 vim.g.mapleader = " "
 
-o.laststatus = 3 -- global statusline
+o.laststatus = 3
 o.showmode = false
 o.winborder = "rounded"
 

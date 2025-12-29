@@ -63,11 +63,30 @@ M.setup = function()
     },
   }
 
+  require("mini.pairs").setup {
+    modes = { insert = true, command = true, terminal = false },
+  }
+
+  require("mini.indentscope").setup {
+    symbol = "│",
+    options = { try_as_border = true },
+  }
+
+  require("mini.files").setup {
+    windows = {
+      preview = true,
+      width_focus = 30,
+      width_preview = 60,
+    },
+    options = {
+      use_as_default_explorer = true,
+    },
+  }
+
   require("mini.icons").setup()
   require("mini.icons").mock_nvim_web_devicons()
   require("mini.move").setup()
   require("mini.cursorword").setup()
-  require("mini.pairs").setup()
   require("mini.cmdline").setup()
   require("mini.pick").setup()
   require("mini.statusline").setup()
