@@ -17,8 +17,9 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    enabled = true,
     branch = "master",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     opts = function()
@@ -31,6 +32,7 @@ return {
 
   {
     "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     opts = require "plugins.configs.bufferline",
   },
 
@@ -63,6 +65,8 @@ return {
 
   {
     "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    cmd = { "ConformInfo" },
     opts = require "plugins.configs.conform",
   },
 

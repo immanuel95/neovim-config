@@ -89,8 +89,6 @@ local servers = {
       python = {
         analysis = {
           ignore = { "*" },
-          -- typeCheckingMode = "strict",
-          -- diagnosticsMode = "workspace",
         },
       },
       pyright = {
@@ -101,18 +99,10 @@ local servers = {
   ruff = {
     init_options = {
       settings = {
-        lineLength = 88,
-        logLevel = "debug",
-        exclude = { ".venv", "__pycache__", ".pytest_cache", ".ruff_cache" },
-        lint = {
-          select = { "E", "W", "F", "B", "I", "N", "D", "UP", "ANN", "S", "RUF", "TCH", "PTH", "DOC" },
-          ignore = {
-            "E501", -- Line length (handled by formatter)
-            "ANN101", -- Missing type annotation for self (common in Python classes)
-            "D203", -- Conflicts with D211 (docstring whitespace)
-            "F401", -- Unused import (Pyright's is more robust)
-          },
-        },
+        logLevel = "error",
+        format = { enable = true },
+        organizeImports = true,
+        fixAll = true,
       },
     },
   },
@@ -150,7 +140,11 @@ local servers = {
 local x = vim.diagnostic.severity
 
 vim.diagnostic.config {
-  virtual_text = { prefix = "" },
+  virtual_text = {
+    prefix = "",
+    source = "if_many",
+    spacing = 2,
+  },
   signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
   underline = true,
   float = { border = "single" },

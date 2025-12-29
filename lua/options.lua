@@ -8,6 +8,8 @@ o.winborder = "rounded"
 
 o.clipboard = "unnamedplus"
 
+o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
 -- Indenting
 o.expandtab = true
 o.shiftwidth = 2
@@ -37,7 +39,6 @@ opt.guicursor = {
   "r-cr:hor20-Cursor",
   "n-v-c-i-ci-ve-r-cr:blinkon500-blinkoff500",
 }
-opt.termguicolors = true
 
 local api = vim.api
 api.nvim_set_hl(0, "YankHighlight", { bg = "#df8e1d", fg = "NONE" })

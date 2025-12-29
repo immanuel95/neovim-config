@@ -1,5 +1,11 @@
 local map = vim.keymap.set
 
+-- general mappings
+map("n", "<C-s>", "<cmd> w <CR>")
+map("i", "jk", "<ESC>")
+map("n", "<C-c>", "<cmd> %y+ <CR>") -- copy whole filecontent
+map("n", ";", ":", { desc = "CMD enter command mode" })
+
 -- move
 map("i", "<C-h>", "<Left>", { desc = "move left" })
 map("i", "<C-l>", "<Right>", { desc = "move right" })
@@ -12,16 +18,12 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
--- general mappings
-map("n", "<C-s>", "<cmd> w <CR>")
-map("i", "jk", "<ESC>")
-map("n", "<C-c>", "<cmd> %y+ <CR>") -- copy whole filecontent
-
-map("n", ";", ":", { desc = "CMD enter command mode" })
-
 -- copy lines
 map("v", "<leader>J", ":t '><CR>", { noremap = true, silent = true, desc = "Copy selected lines below in visual mode" })
 map("v", "<leader>K", ":t 0<CR>", { noremap = true, silent = true, desc = "Copy selected lines top in visual mode" })
+
+-- terminal
+map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 -- mini.nvim
 map("n", "<C-n>", function()
@@ -68,6 +70,11 @@ map("n", "<leader>wh", ":split<CR>", { noremap = true, silent = true, desc = "Sp
 map("n", "<leader>wv", ":vsplit<CR>", { noremap = true, silent = true, desc = "Split vertical" })
 map("n", "<leader>wch", ":new<CR>", { noremap = true, silent = true, desc = "Split horizontal new buffer" })
 map("n", "<leader>wcv", ":vnew<CR>", { noremap = true, silent = true, desc = "Split vertical new buffer" })
+
+-- conform
+map("n", "<leader>cF", function()
+  require("conform").format { formatters = { "injected" }, timout_ms = 3000 }
+end, { desc = "Format injected langs" })
 
 -- misc
 map("n", "<C-e>", "10<C-e>", { desc = "Scroll down 10 lines" })

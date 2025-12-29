@@ -3,7 +3,7 @@ return {
     lua = { "stylua" },
     css = { "prettierd" },
     html = { "prettierd" },
-    python = { "ruff_fix, ruff_format, ruff_organize_imports" },
+    python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     svelte = { "prettierd" },
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
@@ -17,7 +17,7 @@ return {
   },
 
   format_on_save = {
-    timeout_ms = 1000,
+    timeout_ms = 500,
     lsp_fallback = true,
   },
 }

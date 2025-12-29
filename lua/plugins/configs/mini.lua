@@ -89,7 +89,7 @@ M.setup = function()
   require("mini.cursorword").setup()
   require("mini.cmdline").setup()
   require("mini.pick").setup()
-  require("mini.statusline").setup()
+  require("mini.statusline").setup { use_icons = vim.g.have_nerd_font }
   require("mini.notify").setup()
 end
 

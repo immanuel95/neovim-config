@@ -1,10 +1,11 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.have_nerd_font = true
 
 require "autocmd"
 require "options"
-require "mappings"
 require "usercmd"
+require "mappings"
 
 -- bootstrap plugins & lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
