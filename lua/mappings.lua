@@ -3,7 +3,6 @@ local map = vim.keymap.set
 -- general mappings
 map("n", "<C-s>", "<cmd> w <CR>")
 map("i", "jk", "<ESC>")
-map("n", "<C-c>", "<cmd> %y+ <CR>") -- copy whole filecontent
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 -- move
@@ -81,7 +80,7 @@ map("n", "<leader>wh", ":split<CR>", { noremap = true, silent = true, desc = "Sp
 map("n", "<leader>wv", ":vsplit<CR>", { noremap = true, silent = true, desc = "Split vertical" })
 map("n", "<leader>wch", ":new<CR>", { noremap = true, silent = true, desc = "Split horizontal new buffer" })
 map("n", "<leader>wcv", ":vnew<CR>", { noremap = true, silent = true, desc = "Split vertical new buffer" })
-map("n", "<leader>wx", ":close<CR>", { noremap = true, silent = true, desc = "Close current window" })
+map("n", "<leader>wd", ":close<CR>", { noremap = true, silent = true, desc = "Close current window" })
 map("n", "<leader>wo", ":only<CR>", { noremap = true, silent = true, desc = "Close all other windows" })
 
 -- conform

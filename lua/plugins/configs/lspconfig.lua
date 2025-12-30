@@ -1,7 +1,6 @@
 --------------------------------------------------------------------------------
 -- 1. DIAGNOSTICS CONFIGURATION
 --------------------------------------------------------------------------------
--- Define signs with a loop to avoid repetitive code
 vim.diagnostic.config {
   virtual_text = {
     prefix = "",
@@ -23,10 +22,8 @@ vim.diagnostic.config {
 --------------------------------------------------------------------------------
 -- 2. CAPABILITIES
 --------------------------------------------------------------------------------
--- Standardize capabilities (e.g., for nvim-cmp or blink)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- Add completion specific capabilities
 capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
@@ -45,7 +42,6 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
--- Apply capabilities to all servers by default
 vim.lsp.config("*", { capabilities = capabilities })
 
 --------------------------------------------------------------------------------
@@ -146,7 +142,6 @@ local servers = {
   },
 }
 
--- Iterate and enable servers
 for name, opts in pairs(servers) do
   vim.lsp.config(name, opts)
   vim.lsp.enable(name)
@@ -161,10 +156,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-    -- 1. Enable completion triggered by <c-x><c-o>
     vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-    -- 2. Buffer Local Keymaps
     local opts = { buffer = bufnr, desc = "LSP" }
     local map = vim.keymap.set
 
@@ -178,9 +171,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)
 
-    -- 3. Client Specific Overrides
     if client and client.name == "ruff" then
-      -- Disable hover in favor of Pyright
+      -- Disable pyright hover in favor of Pyright
       client.server_capabilities.hoverProvider = false
     end
   end,
