@@ -19,11 +19,22 @@ map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
 -- copy lines
-map("v", "<leader>J", ":t '><CR>", { noremap = true, silent = true, desc = "Copy selected lines below in visual mode" })
-map("v", "<leader>K", ":t 0<CR>", { noremap = true, silent = true, desc = "Copy selected lines top in visual mode" })
+map(
+  "v",
+  "<leader>J",
+  ":t '><CR>gv=gv",
+  { noremap = true, silent = true, desc = "Copy selected lines below in visual mode" }
+)
+map(
+  "v",
+  "<leader>K",
+  ":t '< -1<CR>gv=gv",
+  { noremap = true, silent = true, desc = "Copy selected lines top in visual mode" }
+)
 
 -- terminal
 map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+map("n", "<leader>tt", ":terminal<CR>", { desc = "Open terminal" })
 
 -- mini.nvim
 map("n", "<C-n>", function()
@@ -70,6 +81,8 @@ map("n", "<leader>wh", ":split<CR>", { noremap = true, silent = true, desc = "Sp
 map("n", "<leader>wv", ":vsplit<CR>", { noremap = true, silent = true, desc = "Split vertical" })
 map("n", "<leader>wch", ":new<CR>", { noremap = true, silent = true, desc = "Split horizontal new buffer" })
 map("n", "<leader>wcv", ":vnew<CR>", { noremap = true, silent = true, desc = "Split vertical new buffer" })
+map("n", "<leader>wx", ":close<CR>", { noremap = true, silent = true, desc = "Close current window" })
+map("n", "<leader>wo", ":only<CR>", { noremap = true, silent = true, desc = "Close all other windows" })
 
 -- conform
 map("n", "<leader>cF", function()
