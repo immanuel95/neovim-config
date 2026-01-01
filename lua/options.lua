@@ -2,6 +2,7 @@ local o = vim.o
 local opt = vim.opt
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 o.laststatus = 3
 o.showmode = false

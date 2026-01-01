@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- general mappings
-map("n", "<C-s>", "<cmd> w <CR>")
+map("n", "<C-s>", ": w <CR>")
 map("i", "jk", "<ESC>")
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
@@ -46,10 +46,10 @@ map("n", "<leader>n", function()
 end, { desc = "Notify history" })
 
 -- buffers
-map("n", "H", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-map("n", "L", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close Other Buffers" })
-map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Current Buffer" })
+map("n", "H", ":BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "L", ":BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>bo", ":BufferLineCloseOthers<cr>", { desc = "Close Other Buffers" })
+map("n", "<leader>bd", ":bdelete<cr>", { desc = "Delete Current Buffer" })
 
 -- windows management
 map(
@@ -96,7 +96,5 @@ map("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, desc = "Save" })
 map("i", "<C-c>", "<Esc>", { noremap = true, desc = "Exit Insert mode" })
 
 -- iron.nvim
-map("n", "<leader>rs", "<cmd>IronRepl<cr>", { noremap = true, desc = "Open REPL" })
-map("n", "<leader>rr", "<cmd>IronRestart<cr>", { noremap = true, desc = "Restart REPL" })
-map("n", "<leader>rf", "<cmd>IronFocus<cr>", { noremap = true, desc = "Focus REPL" })
-map("n", "<leader>rh", "<cmd>IronHide<cr>", { noremap = true, desc = "Hide REPL" })
+map("n", "<leader>rf", ":IronFocus<cr>", { noremap = true, desc = "Focus REPL" })
+map("n", "<leader>rh", ":IronHide<cr>", { noremap = true, desc = "Hide REPL" })
